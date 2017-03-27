@@ -1,4 +1,4 @@
-# data_softdev
+# State Fragility Index Graphic Webiste
 
 ## Our Goal
 The goal of this project is to graphically portray data about the State Fragility Index.
