@@ -13,13 +13,13 @@ Users will also be able to explore similar graphical displays regarding the Gove
 
 Finally, the user will be able to select up to 10 countries to view at a time with menus at the bottom of the page.
 
-##Documentation
+## Documentation
 Note: There are 162 total countries. 
 Note: Years are only valid between 1995 and 2014.
 Note: Any 'type' may be: "sfi" | "legit" | "effect" for the state fragility index, legitimacy index, and effectiveness index respectively.
 
 
-###Backend
+### Backend
 countryNames() -- Returns a list of all the names of the countries for which we have data (162 total)
 
 sfiForYear(int year, list countries(opt)) -- given an integer year and an optional list of country names, returns a dictionary with country name keys and state fragility index values for the countries given. Note: if no country list is given, a list of all the countries will be used.
