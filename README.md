@@ -33,3 +33,5 @@ effectForYear(int year, list countries(opt)) -- *given an integer year and an op
 radiusForYear(string country, int year, string type) -- *given a string name of a country, an integer year, and a type, returns the radius of a display circle for that given country's data in that year.*
 
 radiiForYear(list country, int year, string type) -- *given a list of names of countries, an integer year, and a type, returns a dictionary with country name keys and radius values for the display circle for that given country's data in that year.*
+
+getCode(country) -- *given a string country name, returns the string 2 letter country code for that country.*
