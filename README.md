@@ -15,19 +15,21 @@ Finally, the user will be able to select up to 10 countries to view at a time wi
 
 ## Documentation
 Note: There are 162 total countries. 
+
 Note: Years are only valid between 1995 and 2014.
+
 Note: Any 'type' may be: "sfi" | "legit" | "effect" for the state fragility index, legitimacy index, and effectiveness index respectively.
 
 
 ### Backend
-countryNames() -- Returns a list of all the names of the countries for which we have data (162 total)
+countryNames() -- *Returns a list of all the names of the countries for which we have data (162 total)*
 
-sfiForYear(int year, list countries(opt)) -- given an integer year and an optional list of country names, returns a dictionary with country name keys and state fragility index values for the countries given. Note: if no country list is given, a list of all the countries will be used.
+sfiForYear(int year, list countries(opt)) -- *given an integer year and an optional list of country names, returns a dictionary with country name keys and state fragility index values for the countries given. Note: if no country list is given, a list of all the countries will be used.*
 
-legitForYear(int year, list countries(opt)) -- given an integer year and an optional list of country names, returns a dictionary with country name keys and legitimacy values for the countries given. Note: if no country list is given, a list of all the countries will be used.
+legitForYear(int year, list countries(opt)) -- *given an integer year and an optional list of country names, returns a dictionary with country name keys and legitimacy values for the countries given. Note: if no country list is given, a list of all the countries will be used.*
 
-effectForYear(int year, list countries(opt)) -- given an integer year and an optional list of country names, returns a dictionary with country name keys and effectiveness values for the countries given. Note: if no country list is given, a list of all the countries will be used.
+effectForYear(int year, list countries(opt)) -- *given an integer year and an optional list of country names, returns a dictionary with country name keys and effectiveness values for the countries given. Note: if no country list is given, a list of all the countries will be used.*
 
-radiusForYear(string country, int year, string type) -- given a string name of a country, an integer year, and a type, returns the radius of a display circle for that given country's data in that year.
+radiusForYear(string country, int year, string type) -- *given a string name of a country, an integer year, and a type, returns the radius of a display circle for that given country's data in that year.*
 
-radiiForYear(list country, int year, string type) -- given a list of names of countries, an integer year, and a type, returns a dictionary with country name keys and radius values for the display circle for that given country's data in that year.
+radiiForYear(list country, int year, string type) -- *given a list of names of countries, an integer year, and a type, returns a dictionary with country name keys and radius values for the display circle for that given country's data in that year.*
