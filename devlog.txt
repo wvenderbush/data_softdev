@@ -17,3 +17,4 @@ Added area calculation functions for display circles
 
 venderbushW -- 2017-4-01 13:03
 Finished bulk area calculation and get functions
+Added country code framework

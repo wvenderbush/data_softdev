@@ -1,12 +1,15 @@
 import state_fragility
 import math
 import pprint
+from pprint import pprint
+import json
 
 list_of_scores = state_fragility.get_scores(test=False)
 
 cdict = {}
 
-
+with open('../data/countries.json') as data_file:    
+    codes = json.load(data_file)
 
 for item in list_of_scores:
 	country = item['Country']
@@ -108,10 +111,22 @@ def radiiForYear(countries, year, type):
 	return retdict
 
 
+#----------------------------------------------------------------------------------------
 
-#pprint.pprint(sfiForYear(1999))
+def getCode(country):
+	for item in codes:
+		if item['name'] == country:
+			return item['code']
+
+
+
+
+
+
+#pprint(sfiForYear(1999))
 #print(findRadius(0, 'sfi'))
 #print radiusForYear("Canada", 2000, 'sfi')
-pprint.pprint(radiiForYear(['Canada', 'Mexico', 'Germany'], 2001, 'sfi'))
+#pprint(radiiForYear(['Canada', 'Mexico', 'Germany'], 2001, 'sfi'))
+#print(getCode('Tanzania'))
 
 #print countryNames()
