@@ -60,21 +60,58 @@ def findRadius(index, type):
 	if (index < 0 or index > 120):
 		radius = -1
 		
-	elif type = "sfi":
-		area = math.abs(121 - index)
+	elif type == "sfi":
+		area = math.fabs(121 - index)
 		radius = math.sqrt(area / math.pi)
 
 	else:
-		area = math.abs(61 - index)
+		area = math.fabs(61 - index)
 		radius = math.sqrt(area / math.pi)
 
 	return radius
 
-def radiusForYear(year, country):
-	
+def radiusForYear(country, year, type):
+	if type == 'sfi':
+		index = sfiForYear(year, [country])
+		rad = findRadius(index[country], type);
+
+	elif type == 'legit':
+		index = legitForYear(year, [country])
+		rad = findRadius(index[country], type);
+
+	elif type == 'effect':
+		index = effectForYear(year, [country])
+		rad = findRadius(index[country], type);
+
+	return rad
+
+def radiiForYear(countries, year, type):
+	retdict = {}
+	if type == 'sfi':
+		for country in countries:
+			index = sfiForYear(year, [country])
+			rad = findRadius(index[country], type);
+			retdict[country] = rad
+
+	elif type == 'legit':
+		for country in countries:
+			index = legitForYear(year, [country])
+			rad = findRadius(index[country], type);
+			retdict[country] = rad
+
+	elif type == 'effect':
+		for country in countries:
+			index = effectForYear(year, [country])
+			rad = findRadius(index[country], type);
+			retdict[country] = rad
+
+	return retdict
 
 
 
-pprint.pprint(sfiForYear(1999))
+#pprint.pprint(sfiForYear(1999))
+#print(findRadius(0, 'sfi'))
+#print radiusForYear("Canada", 2000, 'sfi')
+pprint.pprint(radiiForYear(['Canada', 'Mexico', 'Germany'], 2001, 'sfi'))
 
 #print countryNames()

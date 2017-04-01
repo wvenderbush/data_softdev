@@ -1,0 +1,19 @@
+DevLog
+------
+
+venderbushW -- 2017-3-27 15:22
+Added Skeleton
+
+venderbushW -- 2017-3-28 15:15
+Implemented SFI Library
+
+venderbushW -- 2017-3-29 20:30
+Parsed data from SFI library
+Added basic get functions for data from SFI
+
+venderbushW -- 2017-3-31 21:45
+Finished basic get funcitons for data
+Added area calculation functions for display circles
+
+venderbushW -- 2017-4-01 13:03
+Finished bulk area calculation and get functions
