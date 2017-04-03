@@ -22,22 +22,7 @@ for item in list_of_scores:
 	year = item['Year']
 	cdict[country][year] = {'sfi':item['Metrics']['State Fragility Index'], 'legit': legit, 'effect': effect}
 
-def countryNames():
-	return cdict.keys()
-
-def countryCodes():
-	clist = cdict.keys()
-	retlist = []
-	for item in clist:
-		retlist.append(getCode(item))
-	return retlist
-
-def getFlag(ccode):
-	url = "http://www.geognos.com/api/en/countries/flag/" + ccode.upper() + ".png" #service_name/counry_code_or_ip.ouput_format
-	# print url
-	# response = urllib.urlopen(url)
-	# data = json.loads(response.read())
-	return url
+#-----------------------------------------------------------------------------------------------------------------
 
 def sfiForYear(year, clist=cdict.keys()):
 	retdict = {}
@@ -131,6 +116,23 @@ def getCode(country):
 	for item in codes:
 		if item['name'] == country:
 			return item['code']
+
+def countryNames():
+	return cdict.keys()
+
+def countryCodes():
+	clist = cdict.keys()
+	retlist = []
+	for item in clist:
+		retlist.append(getCode(item))
+	return retlist
+
+def getFlag(ccode):
+	url = "http://www.geognos.com/api/en/countries/flag/" + ccode.upper() + ".png" #service_name/counry_code_or_ip.ouput_format
+	# print url
+	# response = urllib.urlopen(url)
+	# data = json.loads(response.read())
+	return url
 
 
 #print(getFlag('ca'))
