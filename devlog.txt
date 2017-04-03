@@ -18,3 +18,6 @@ Added area calculation functions for display circles
 venderbushW -- 2017-4-01 13:03
 Finished bulk area calculation and get functions
 Added country code framework
+
+marksG -- 2017-4-02 10:30
+Finally finished the stupid masking
