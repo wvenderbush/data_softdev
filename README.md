@@ -24,6 +24,8 @@ Note: Any 'type' may be: "sfi" | "legit" | "effect" for the state fragility inde
 ### Backend
 countryNames() -- *Returns a list of all the names of the countries for which we have data (162 total)*
 
+countryCodes() -- *Returns a list of all the two letter country codes for which we have data*
+
 sfiForYear(int year, list countries(opt)) -- *given an integer year and an optional list of country names, returns a dictionary with country name keys and state fragility index values for the countries given. Note: if no country list is given, a list of all the countries will be used.*
 
 legitForYear(int year, list countries(opt)) -- *given an integer year and an optional list of country names, returns a dictionary with country name keys and legitimacy values for the countries given. Note: if no country list is given, a list of all the countries will be used.*
