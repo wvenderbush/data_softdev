@@ -23,4 +23,4 @@ venderbushW -- 2017-4-03 10:08
 Added getFlag with flag picture API
 
 venderbushW -- 2017-4-03 14:29
-Added getCodes() function to get list of country codes
+Added countryCodes() function to get list of country codes
