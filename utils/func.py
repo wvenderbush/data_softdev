@@ -117,6 +117,11 @@ def getCode(country):
 		if item['name'] == country:
 			return item['code']
 
+def getCountry(code):
+	for item in codes:
+		if item['code'] = code:
+			return item['name']
+
 def countryNames():
 	return cdict.keys()
 
