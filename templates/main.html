@@ -1,14 +1,22 @@
 <html>
   <head>
     <title>Main</title>
+    <link rel="stylesheet" href="../static/main.css">
   </head>
   <body>
     <svg style="border-style: double;" id="scroll" width = "1400" height = "75" xmlns="http://www.w3.org/2000/svg"></svg><br>
     <hr>
     <svg style="border-style: dashed;" id="display" width = "1400" height = "615" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <mask maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox" id="flagMask">
+          <circle cx="0.5" cy="0.5" r="0.475" fill="white">
+        </mask>
+      </defs>
+      <image width="500" height="500" xlink:href="https://staticacm.isograd.com/commercial_1/images/logos/logo_word.png" class="flag">
     </svg><br>
+    
     <br>
     <button id="clear">Clear canvas</button>
-    <script type="text/javascript" src="function.js"></script>
+    <script type="text/javascript" src="../static/app.js"></script>
   </body>
 </html>
