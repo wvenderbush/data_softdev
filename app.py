@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route("/home")
 def root():
 	form = request.form
-	return render_template('main.html', title = "State Fragility Indices")
+	return render_template('main.html', title = "State Fragility Indices", )
 
 
 if __name__ == "__main__":

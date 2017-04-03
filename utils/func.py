@@ -25,6 +25,13 @@ for item in list_of_scores:
 def countryNames():
 	return cdict.keys()
 
+def countryCodes():
+	clist = cdict.keys()
+	retlist = []
+	for item in clist:
+		retlist.append(getCode(item))
+	return retlist
+
 def getFlag(ccode):
 	url = "http://www.geognos.com/api/en/countries/flag/" + ccode.upper() + ".png" #service_name/counry_code_or_ip.ouput_format
 	# print url
@@ -126,7 +133,8 @@ def getCode(country):
 			return item['code']
 
 
-print(getFlag('ca'))
+#print(getFlag('ca'))
+print(countryCodes())
 
 
 
