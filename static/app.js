@@ -7,9 +7,9 @@ var countries = [];
 
 var collides = function(x, y, r) {
     for (ball in countries) {
-	ro = parseInt(ball.getAttribute('width')) / 2;
-	xo = parseInt(ball.getAttribute('x')) + ro;
-	yo = parseInt(ball.getAttribute('y')) + ro;
+	ro = parseInt(ball.width) / 2;
+	xo = parseInt(ball.x) + ro;
+	yo = parseInt(ball.y) + ro;
 	if(Math.pow(xo - x, 2) + Math.pow(yo - y, 2) <= Math.pow(ro - r, 2))
 	    return true;
     }
@@ -20,11 +20,12 @@ var country = function(c, y) {
     var im = document.createElementNS(ns, 'image');
     var r = -1;
     $.get('/data',{country:c, year:y}, function(data) {
-        r = data.radius;
+        r = data.radius * 8;
     	im.setAttribute('xlink:href', data.url);
     	im.setAttribute('width', 2 * r);
     	im.setAttribute('height', 2 * r);
         im.setAttribute('class', 'flag');
+        im.setAttribute('preserveAspectRatio', 'none')
     	maxx = 1400 - 2 * r;
     	maxy = 615 - 2 * r;
         tries = 5000;
@@ -40,6 +41,6 @@ var country = function(c, y) {
     return im;
 }
 
-country('PO', 1990);
+country('PL', 1990);
 country('US', 2000);
-country('UK', 2010);
+country('GB', 2010);

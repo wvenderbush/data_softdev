@@ -4,7 +4,7 @@
 import utils.func as func
 from flask import Flask, render_template, request, url_for
 import utils
-
+from flask import jsonify
 
 app = Flask(__name__)
 
@@ -21,10 +21,13 @@ def about():
 
 @app.route("/data")
 def data():
-    countrycode = request.args.get('country')
-    print countrycode
-    year = request.args.get('year')
-    return {'url': func.getFlag(countrycode), 'radius': func.radiusForYear(func.getCountry(countrycode), year, 'sfi')}
+    code = request.args.get('country')
+    country = func.getCountry(code)
+    year = int(request.args.get('year'))
+    ret = {'url': func.getFlag(code), 'radius': func.radiusForYear(country, year, 'sfi')}
+    print ret
+    return jsonify(ret)
+
 
 if __name__ == "__main__":
     app.debug = True 

@@ -116,11 +116,12 @@ def getCode(country):
 	for item in codes:
 		if item['name'] == country:
 			return item['code']
-
+	raise NameError("%s is not a country" % (country))
 def getCountry(code):
 	for item in codes:
 		if item['code'] == code:
 			return item['name']
+	raise NameError("%s is not a country code" % (code))
 
 def countryNames():
 	return cdict.keys()
@@ -152,3 +153,4 @@ print(countryCodes())
 #print(getCode('Tanzania'))
 
 #print countryNames()
+print radiusForYear("Poland", 2000, 'sfi')
