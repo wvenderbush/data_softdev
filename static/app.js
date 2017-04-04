@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-ns = "http://www.www.w3.org/2000/svg"
-$.get("/flagImage", {country: "germany"}, function(url) {
-    c = document.createElementNS(ns, "image");
-    
-})
-=======
+
 var bar = document.getElementById('scroll');
 var dis = document.getElementById('display');
 var ns = 'http://www.w3.org/2000/svg';
