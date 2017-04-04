@@ -21,7 +21,7 @@ var country = function(c, y) {
     var r = -1;
     $.get('/data',{country:c, year:y}, function(data) {
         r = data.radius * 8;
-    	im.setAttribute('xlink:href', data.url);
+    	im.href.baseVal = data.url;
     	im.setAttribute('width', 2 * r);
     	im.setAttribute('height', 2 * r);
         im.setAttribute('class', 'flag');
@@ -41,6 +41,6 @@ var country = function(c, y) {
     return im;
 }
 
-country('PL', 1990);
+country('PL', 2000);
 country('US', 2000);
-country('GB', 2010);
+country('GB', 2000);
