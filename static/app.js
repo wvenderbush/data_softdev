@@ -1,4 +1,3 @@
-
 var bar = document.getElementById('scroll');
 var dis = document.getElementById('display');
 var ns = 'http://www.w3.org/2000/svg';
@@ -29,27 +28,39 @@ var country = function(c, y) {
     	im.setAttribute('height', 2 * r);
         im.setAttribute('class', 'flag');
         im.setAttribute('preserveAspectRatio', 'none');
-    	maxx = 1400 - 2 * r;
-    	maxy = 615 - 2 * r;
-        tries = 5000;
-        do {
-    	   x = Math.floor(Math.random() * (maxx));
-    	   y = Math.floor(Math.random() * (maxy));
-        } while(collides(x, y, r));
-        im.setAttribute('x', x);
-        im.setAttribute('y', y);
-        countries.push(im);
+        b.setAttribute('r', r + 3);
+        countries.push([im, b]);
+        dis.appendChild(b);
         dis.appendChild(im);
-	b.setAttribute('cx', x);
- 	b.setAttribute('cy', y);
-	b.setAttribute('r', r);
-	b.setAttribute('stroke', 'black');
-	dis.appendChild(b);
-     
+        
     });
     return im;
+}
+
+var placeBalls = function() {
+    
+    tries = 5000;
+    for (c in countries) {
+        im = countries[0];
+        b = countries[1];
+        maxx = 1400 - 2 * im.r;
+        maxy = 615 - 2 * im.r;
+        do {
+           x = Math.floor(Math.random() * (maxx));
+           y = Math.floor(Math.random() * (maxy));
+           tries--;
+        } while(collides(x, y, im.r) && tries > 0);
+        im.x.baseVal = x;
+        im.y.baseVal = y;
+        
+        b.cx.baseVal = x + b.r;
+        b.cy.baseVal = y + b.r;
+        b.stroke.baseVal = 'black';
+        
+    }
 }
 
 country('PL', 2000);
 country('US', 2001);
 country('GB', 2000);
+setTimeout(placeBalls, 100);
