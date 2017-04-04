@@ -22,8 +22,9 @@ def about():
 @app.route("/data")
 def data():
     countrycode = request.args.get('country')
+    print countrycode
     year = request.args.get('year')
-	return {flagurl: func.getFlag(countrycode), radius: func.radiusForYear(func.getCountry(countrycode), year, 'sfi')}
+    return {'url': func.getFlag(countrycode), 'radius': func.radiusForYear(func.getCountry(countrycode), year, 'sfi')}
 
 if __name__ == "__main__":
     app.debug = True 
