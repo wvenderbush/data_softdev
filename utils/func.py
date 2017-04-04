@@ -3,6 +3,7 @@ import math
 import pprint
 from pprint import pprint
 import json
+import urllib
 
 list_of_scores = state_fragility.get_scores(test=False)
 
@@ -21,9 +22,7 @@ for item in list_of_scores:
 	year = item['Year']
 	cdict[country][year] = {'sfi':item['Metrics']['State Fragility Index'], 'legit': legit, 'effect': effect}
 
-def countryNames():
-	return cdict.keys()
-
+#-----------------------------------------------------------------------------------------------------------------
 
 def sfiForYear(year, clist=cdict.keys()):
 	retdict = {}
@@ -118,8 +117,31 @@ def getCode(country):
 		if item['name'] == country:
 			return item['code']
 
+def getCountry(code):
+	for item in codes:
+		if item['code'] = code:
+			return item['name']
+
+def countryNames():
+	return cdict.keys()
+
+def countryCodes():
+	clist = cdict.keys()
+	retlist = []
+	for item in clist:
+		retlist.append(getCode(item))
+	return retlist
+
+def getFlag(ccode):
+	url = "http://www.geognos.com/api/en/countries/flag/" + ccode.upper() + ".png" #service_name/counry_code_or_ip.ouput_format
+	# print url
+	# response = urllib.urlopen(url)
+	# data = json.loads(response.read())
+	return url
 
 
+#print(getFlag('ca'))
+print(countryCodes())
 
 
 

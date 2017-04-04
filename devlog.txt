@@ -21,3 +21,12 @@ Added country code framework
 
 marksG -- 2017-4-02 10:30
 Finally finished the stupid masking
+
+venderbushW -- 2017-4-03 10:08
+Added getFlag with flag picture API
+
+venderbushW -- 2017-4-03 14:29
+Added countryCodes() function to get list of country codes
+
+marksG -- 2017-4-03 4:30
+Adding actual balls to js
