@@ -1,8 +1,14 @@
 DevLog
 ------
 
+dilmohamedS -- 2017-3-27 3:15
+Found SFI dictionary and created plans for usage
+
 venderbushW -- 2017-3-27 15:22
 Added Skeleton
+
+BigL -- 2017-3-28 15:10
+Finished Flask app stuff
 
 venderbushW -- 2017-3-28 15:15
 Implemented SFI Library
@@ -30,3 +36,6 @@ Added countryCodes() function to get list of country codes
 
 marksG -- 2017-4-03 4:30
 Adding actual balls to js
+
+dilmohamedS 2017-4-03 6:30
+Bugchecking ball and border functions
