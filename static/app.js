@@ -18,14 +18,17 @@ var collides = function(x, y, r) {
 
 var country = function(c, y) {
     var im = document.createElementNS(ns, 'image');
+    var b = document.createElementNS(ns, 'circle');
     var r = -1;
     $.get('/data',{country:c, year:y}, function(data) {
+        pair = [];
         r = data.radius * 8;
+	console.log(r);
     	im.href.baseVal = data.url;
     	im.setAttribute('width', 2 * r);
     	im.setAttribute('height', 2 * r);
         im.setAttribute('class', 'flag');
-        im.setAttribute('preserveAspectRatio', 'none')
+        im.setAttribute('preserveAspectRatio', 'none');
     	maxx = 1400 - 2 * r;
     	maxy = 615 - 2 * r;
         tries = 5000;
@@ -37,10 +40,16 @@ var country = function(c, y) {
         im.setAttribute('y', y);
         countries.push(im);
         dis.appendChild(im);
+	b.setAttribute('cx', x);
+ 	b.setAttribute('cy', y);
+	b.setAttribute('r', r);
+	b.setAttribute('stroke', 'black');
+	dis.appendChild(b);
+     
     });
     return im;
 }
 
 country('PL', 2000);
-country('US', 2000);
+country('US', 2001);
 country('GB', 2000);
