@@ -5,7 +5,8 @@ var countries = [];
 
 
 var collides = function(x, y, r) {
-    for (ball in countries) {
+    for (var i = 0; i < countries.length; i++) {
+	ball = countries[i][0]
 	ro = parseInt(ball.width) / 2;
 	xo = parseInt(ball.x) + ro;
 	yo = parseInt(ball.y) + ro;
@@ -30,9 +31,6 @@ var country = function(c, y) {
         im.setAttribute('preserveAspectRatio', 'none');
         b.setAttribute('r', r + 3);
         countries.push([im, b]);
-        dis.appendChild(b);
-        dis.appendChild(im);
-        
     });
     return im;
 }
@@ -40,22 +38,31 @@ var country = function(c, y) {
 var placeBalls = function() {
     
     tries = 5000;
-    for (c in countries) {
-        im = countries[0];
-        b = countries[1];
-        maxx = 1400 - 2 * im.r;
-        maxy = 615 - 2 * im.r;
+    for (var i = 0; i < countries.length; i++) {
+        im = countries[i][0];
+        b = countries[i][1];
+        r = parseFloat(im.getAttribute('width')) / 2;
+        br = b.getAttribute('r');
+        maxx = 1400 - 2 * br;
+        maxy = 615 - 2 * br;
+		var x = 0;
+		var y = 0;
         do {
            x = Math.floor(Math.random() * (maxx));
            y = Math.floor(Math.random() * (maxy));
            tries--;
-        } while(collides(x, y, im.r) && tries > 0);
-        im.x.baseVal = x;
-        im.y.baseVal = y;
-        
-        b.cx.baseVal = x + b.r;
-        b.cy.baseVal = y + b.r;
-        b.stroke.baseVal = 'black';
+        } while(collides(x, y, br) && tries > 0);
+   	 	console.log(x);
+    	console.log(y);
+        im.setAttribute('x', x);
+		im.setAttribute('y', y);
+
+	b.setAttribute('cx', parseFloat(x) + r);
+	b.setAttribute('cy', parseFloat(y) + r);
+	b.setAttribute('stroke', 'black');
+	dis.appendChild(b);
+	dis.appendChild(im);
+
         
     }
 }
