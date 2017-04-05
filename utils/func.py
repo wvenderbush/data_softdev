@@ -9,7 +9,7 @@ list_of_scores = state_fragility.get_scores(test=False)
 
 cdict = {}
 
-with open('data/countries.json') as data_file:    
+with open('../data/countries.json') as data_file:    
     codes = json.load(data_file)
 
 for item in list_of_scores:
@@ -144,16 +144,23 @@ def getFlag(ccode):
 	# data = json.loads(response.read())
 	return url
 
+def allFlags():
+	retlist = []
+	clist = countryCodes()
+	for item in clist:
+		retlist.append(getFlag(item))
+	return retlist
+
 
 #print(getFlag('ca'))
 #print(countryCodes())
 
-
+#print allFlags()
 
 #pprint(sfiForYear(2001))
 #print(findRadius(120, 'sfi'))
 #print radiusForYear("Canada", 2000, 'sfi')
-pprint(radiiForYear(['Somalia', 'Mexico', 'Germany'], 2001, 'sfi'))
+#pprint(radiiForYear(['Somalia', 'Mexico', 'Germany'], 2001, 'sfi'))
 #print(getCode('Tanzania'))
 
 #print countryNames()
