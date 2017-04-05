@@ -117,12 +117,13 @@ def getCode(country):
 	for item in codes:
 		if item['name'] == country:
 			return item['code']
-	raise NameError("%s is not a country" % (country))
+	#raise NameError("%s is not a country" % (country))
+
 def getCountry(code):
 	for item in codes:
 		if item['code'] == code:
 			return item['name']
-	raise NameError("%s is not a country code" % (code))
+	#raise NameError("%s is not a country code" % (code))
 
 def countryNames():
 	return cdict.keys()
@@ -134,7 +135,7 @@ def countryCodes():
 		try:
 			retlist.append(getCode(item).encode('ascii', 'ignore'))
 		except:
-			pass
+			print item
 	return retlist
 
 def getFlag(ccode):
@@ -144,16 +145,35 @@ def getFlag(ccode):
 	# data = json.loads(response.read())
 	return url
 
+def allFlags():
+	retlist = {}
+	clist = countryCodes()
+	for item in clist:
+		retlist[getCountry(item)] = getFlag(item)
+	return retlist
+
+def getFlagList(codes):
+	retdict = {}
+	for item in codes:
+		retdict[getCountry(item)] = getFlag(item)
+	return retdict
+
 
 #print(getFlag('ca'))
 #print(countryCodes())
 
+#print allFlags()
 
+#print countryCodes()
+
+print getFlagList(countryCodes())
+
+#print getCountry('CA')
 
 #pprint(sfiForYear(2001))
 #print(findRadius(120, 'sfi'))
 #print radiusForYear("Canada", 2000, 'sfi')
-pprint(radiiForYear(['Somalia', 'Mexico', 'Germany'], 2001, 'sfi'))
+#pprint(radiiForYear(['Somalia', 'Mexico', 'Germany'], 2001, 'sfi'))
 #print(getCode('Tanzania'))
 
 #print countryNames()

@@ -1,41 +1,29 @@
-<html>
-  <head>
-    <title>About</title>
-    <link rel="stylesheet" href="../static/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Fragile State Index</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">About</a></li>
-      <li><a href="main.html">Home</a></li>
-    </ul>
-  </div>
-</nav>
+
+{% extends "base.html" %}
+{% block about %}
+<br/><br/><br/>
   <body>
+  <div class="container">
   <h1>What is the Fragile States Index?</h1>
   It's a report on the sovereign states recognized by the United Nations and aims to assess each state's vulnerability to conflict or collapse.
   It's published every year by the UN think tank, the Fund for Peace, and the magazine <i>Foreign Policy</i>.
   It ranks each state where there is enough data to perform the analyis.
+  Our page takes Fragile State Indices (publicly available) and attempts to visualize this data in terms of floating country balls.
+  The larger a ball is, the more unstable the country. You can mouseover the bar at the top to progress through the years.
   <br>
   <h1>How is the the Fragile States Index created?</h1>
     The FSI uses twelve different indicators grouped by category.
     <br>
-    <h3>Social indicators</h3>
     <ul>
+<h3>Social indicators</h3>
 <li>Demographic pressures: Pressures deriving from high volume population density relative to food supply and other life-sustaining resources, which make it difficult for governments to protect citizens. Pressures include those stemming from disease, natural disasters, population growth, infant mortality, and environmental hazards. Governmental capacity and will to respond to such pressures are considered in the score.</li>
 <li>Refugees and Internally Displaced Persons (IDPs): Pressures linked to population displacement, which can strain public resources and threaten security. This indicator concerns displacement in both directions: those leaving and those entering a state. Measures include the presence of refugee/IDP camps, refugees/IDPs per capita, absorption capacity, relief efforts, and targeted violence/repression.</li>
 <li>Group Grievance: Existence of tension and/or violence between groups, which can undermine the state's provision of security. Pressures related to discrimination, ethnic violence, communal violence, sectarian violence, and religious violence are included alongside atrocities committed with impunity against groups singled out by state authorities or dominant groups for persecution or repression, and institutionalized political exclusion.</li>
 <li>Human flight and brain drain: Measures related to migration per capita, particularly emigration of the educated population, which often occurs pre- or mid-conflict. Remittances and growth of exile/expatriate communities are also used as measurements.</li>
-    <h3>Economic indicators</h3>
+<h3>Economic indicators</h3>
 <li>Uneven economic development: Group-based inequality, or perceived inequality, in education, jobs, and economic status can create uneven commitments to the social contract within a state. Measurements include group-based poverty and education levels, existence of slums, and fairness of housing and hiring practices.</li>
 <li>Poverty and economic decline: Progressive economic decline of the society as a whole (measurements: per capita income, GNP, economic deficit, unemployment, poverty levels, business failures, and inflation) strains a state's ability to provide for its citizens, and can create inter-group friction. Also includes failure of the state to pay salaries of government employees and armed forces, or to meet other financial obligations to its citizens, such as pension payments.</li>
-    <h3>Political indicators</h3>
+<h3>Political indicators</h3>
 <li>State legitimacy: Corruption and lack of representativeness undermine the social contract, as citizens lose confidence in state institutions and processes. Measurements include corruption or profiteering by ruling elites, resistance to transparency, level of democracy, illicit economy, and protests/demonstrations.</li>
 <li>Public services: Disappearance, or lack of, basic state functions indicate a state's inability to perform one of its key roles. Measurements include essential services, such as healthcare, education, sanitation, public transportation, police, and infrastructure. Also examined is the use of the state apparatus for agencies that serve ruling elites, such as security forces, executive staff, central bank, diplomatic service, customs and collection agencies.</li>
 <li>Human rights and rule of law: The violation or uneven protection of basic rights mark a failure of a state to execute its primary responsibility. Measurements include press freedom and civil liberties, as well as any widespread abuse of legal, political and social rights for individuals, groups, or cultural institutions (e.g., harassment of the press, politicization of the judiciary, internal use of military for political ends, public repression of political opponents, religious or cultural persecution).</li>
@@ -43,6 +31,8 @@
 <li>Factionalised elites: A fragmentation of ruling elites and state institutions along group lines undermines public confidence. Measurements include elite power struggles, flawed elections, and use of aggressive nationalistic rhetoric.</li>
 <li>External Intervention: Intervention by external actors into a state's affairs signals a state's failure to meet domestic or international obligations. Measurements include level of foreign assistance, presence of peacekeepers or UN missions, foreign military intervention, sanctions, and credit ratings. Intervention by donors, especially if there is a tendency towards over-dependence on foreign aid or peacekeeping missions, is also considered.</li>
     </ul>
-  
-  </body>
-</html>
+
+    <center><i>Credit: Wikipedia</i></center>
+    </div>
+{% endblock %}
+ 

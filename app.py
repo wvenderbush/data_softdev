@@ -10,15 +10,19 @@ import random
 app = Flask(__name__)
 
 @app.route("/")
-@app.route("/home")
+@app.route("/main")
 def root():
 	form = request.form
-	return render_template('main.html', title = "State Fragility Indices", codes = random.sample(func.countryCodes(), 10) )
+	return render_template('main.html', title = "State Fragility Indices", codes = random.sample(func.countryCodes(), 12), urldict = func.getFlagList(codes))
 
 @app.route("/about")
 def about():
 	form = request.form
 	return render_template('about.html', title = "About")
+
+@app.route("/directory")
+def directory():
+    return render_template('directory.html', title = "Country Directory", clist = func.allFlags())
 
 @app.route("/data")
 def data():

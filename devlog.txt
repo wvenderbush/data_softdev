@@ -46,6 +46,9 @@ Loading a large set of random balls now, fixed scaling, fixed border
 marksG -- 2017-4-04 6:00
 Culled lots of bad entries from the list of countries
 
+BigL -- 2017-04-04 6:30
+Front-end work, will go on until relatively nice
+
 marksG -- 2017-4-05 7:00
 Movement, still glitchy
 
@@ -58,5 +61,14 @@ Unglitched the bar, made bouncing better, glitches not as bad
 venderbushW -- 2017-4-05 11:14
 Updated radius algorithm to make extremes more extreme!
 
+<<<<<<< HEAD
 dilmohamedS -- 2017-4-05 11:30
 bugfixing, trying to deal with teleportation glitch
+=======
+venderbushW -- 2017-4-05 11:40
+Added new flag functions
+
+venderbushW -- 2017-4-05 12:24
+Added missing data
+Added jinja functions
+>>>>>>> 42809514d756cb8d2c73be91f4074bb92ec7079f
