@@ -20,6 +20,10 @@ def about():
 	form = request.form
 	return render_template('about.html', title = "About")
 
+@app.route("/directory")
+def directory():
+    return render_template('directory.html', title = "Country Directory")
+
 @app.route("/data")
 def data():
     code = request.args.get('country')
