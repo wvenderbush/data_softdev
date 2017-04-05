@@ -6,8 +6,6 @@ var numLoaded = 0;
 console.log(codeList);
 var collides = function(x, y, r, simple, idx) {
     collisions = []
-    x += r;
-    y += r; // center of circle
     var len;
     for (var i = idx + 1; i < countries.length; i++) {
         ball = countries[i][0];
@@ -112,6 +110,10 @@ var looper = function() {
                 ovy = parseFloat(imO.getAttribute('vy'));
                 ov = parseFloat(imO.getAttribute('v'));
                 dist = Math.pow(Math.pow(ox - x, 2) + Math.pow(oy - y, 2), 0.5)
+                x -= vx;
+                y -= vy;
+                ox -= ovx;
+                oy -= ovy;
                 oldvx = vx;
                 oldvy = vy;
                 vx = ovx / ov * v;
@@ -124,12 +126,20 @@ var looper = function() {
             // 3. move ims
             x += vx;
             y += vy;
-            if(x >= 1400 - r || x < r) {
-                vx = -vx;
+            if(x >= 1400 - r) {
+                vx = -Math.abs(vx);
                 x += vx * 2;
             }
-            if(y >= 615 - r || y < r) {
-                vy = -vy;
+            if(x < r) {
+                vx = Math.abs(vx);
+                x += vx * 2;
+            }
+            if(y >= 615 - r) {
+                vy = -Math.abs(vy);
+                y += vy * 2;
+            }
+            if(y < r) {
+                vy = Math.abs(vy);
                 y += vy * 2;
             }
             
