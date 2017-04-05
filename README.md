@@ -11,29 +11,3 @@ There will be a hover-over slider at the top of the page to allow the user to mo
 
 Countries will be displayed randomly, in an appropriate number to fit the screen.
 
-## Documentation
-Note: There are 162 total countries. 
-
-Note: Years are only valid between 1995 and 2014.
-
-Note: Any 'type' may be: "sfi" | "legit" | "effect" for the state fragility index, legitimacy index, and effectiveness index respectively.
-
-
-### Backend
-countryNames() -- *Returns a list of all the names of the countries for which we have data (162 total)*
-
-countryCodes() -- *Returns a list of all the two letter country codes for which we have data*
-
-sfiForYear(int year, list countries(opt)) -- *given an integer year and an optional list of country names, returns a dictionary with country name keys and state fragility index values for the countries given. Note: if no country list is given, a list of all the countries will be used.*
-
-legitForYear(int year, list countries(opt)) -- *given an integer year and an optional list of country names, returns a dictionary with country name keys and legitimacy values for the countries given. Note: if no country list is given, a list of all the countries will be used.*
-
-effectForYear(int year, list countries(opt)) -- *given an integer year and an optional list of country names, returns a dictionary with country name keys and effectiveness values for the countries given. Note: if no country list is given, a list of all the countries will be used.*
-
-radiusForYear(string country, int year, string type) -- *given a string name of a country, an integer year, and a type, returns the radius of a display circle for that given country's data in that year.*
-
-radiiForYear(list country, int year, string type) -- *given a list of names of countries, an integer year, and a type, returns a dictionary with country name keys and radius values for the display circle for that given country's data in that year.*
-
-getCode(country) -- *given a string country name, returns the string 2 letter country code for that country.*
-
-getFlag(countrycode) -- *given a 2 letter string country code, returns a URL for the .png*
