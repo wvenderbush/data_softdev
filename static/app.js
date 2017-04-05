@@ -98,7 +98,7 @@ var placeBalls = function() {
            tries--;
            console.log(tries);
         } while(collides(x, y, br, true, -1) && tries > 0);
-        v = 250. / (30 + br)
+        v = 75. / (30 + br)
         im.setAttribute('v', v)
         xv = Math.random() * v;
         yv = Math.pow(Math.pow(v, 2) - Math.pow(xv, 2), 0.5);
@@ -154,7 +154,11 @@ var looper = function() {
                 ovy = parseFloat(imO.getAttribute('vy'));
                 ov = parseFloat(imO.getAttribute('v'));
                 or = parseFloat(bO.getAttribute('r'))
-                om = Math.pow(or, 2);      
+                om = Math.pow(or, 2); 
+		x -= (r / 2) * vx;
+		y -= (r / 2) * vy;
+		ox -= (or / 2) * ovx;
+		oy -= (or / 2) * ovy;     
                 xs = collideVels(m, vx, om, ovx);
                 ys = collideVels(m, vy, om, ovy);
                 vx = xs[0];
