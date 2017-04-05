@@ -9,9 +9,7 @@ We plan to show the data using growing and shrinking bubbles. The bubbles will b
 
 There will be a hover-over slider at the top of the page to allow the user to move through the years (1995-2014). As the user moves the mouse, the bubbles will grow/shrink based on their SFI data.
 
-Users will also be able to explore similar graphical displays regarding the Government Legitimacy Index and the Government Effectiveness Index (both of which determine the State Fragility Index when summed).
-
-Finally, the user will be able to select up to 10 countries to view at a time with menus at the bottom of the page.
+Countries will be displayed randomly, in an appropriate number to fit the screen.
 
 ## Documentation
 Note: There are 162 total countries. 
