@@ -8,6 +8,7 @@ var id;
 var yeartext = document.createElement('div');
 yeartext.innerHTML = 'Year: 2000';
 document.body.appendChild(yeartext);
+
 console.log(codeList);
 var collides = function(x, y, r, simple, idx) {
     collisions = []

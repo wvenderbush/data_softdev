@@ -9,8 +9,10 @@
     <script>
       codeList = ["{{ codes[0] }}"{% for i in codes[1:] %}, "{{ i }}"{% endfor %}]
       </script>
+
     <svg style="border-style: double;" id="scroll" width = "1400" height = "75" xmlns="http://www.w3.org/2000/svg"></svg><br>
     <hr>
+
     <svg style="border-style: dashed;" id="display" width = "1400" height = "615" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
         <mask maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox" id="flagMask">
@@ -35,9 +37,8 @@
       <tr>     </tr>
       {% endfor %}
     </table>
-
-    <script type="text/javascript" src="../static/app.js"></script>
     </center>
+<script type="text/javascript" src="../static/app.js"></script>
 
 {% endblock %}
  
