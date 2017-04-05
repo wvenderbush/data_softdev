@@ -10,7 +10,7 @@ import random
 app = Flask(__name__)
 
 @app.route("/")
-@app.route("/home")
+@app.route("/main")
 def root():
 	form = request.form
 	return render_template('main.html', title = "State Fragility Indices", codes = random.sample(func.countryCodes(), 12) )

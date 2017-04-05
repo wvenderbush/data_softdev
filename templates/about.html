@@ -1,22 +1,7 @@
-<html>
-  <head>
-    <title>About</title>
-    <link rel="stylesheet" href="../static/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Fragile State Index</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">About</a></li>
-      <li><a href="main.html">Home</a></li>
-    </ul>
-  </div>
-</nav>
+
+{% extends "base.html" %}
+{% block about %}
+<br/><br/><br/>
   <body>
   <h1>What is the Fragile States Index?</h1>
   It's a report on the sovereign states recognized by the United Nations and aims to assess each state's vulnerability to conflict or collapse.
@@ -43,6 +28,5 @@
 <li>Factionalised elites: A fragmentation of ruling elites and state institutions along group lines undermines public confidence. Measurements include elite power struggles, flawed elections, and use of aggressive nationalistic rhetoric.</li>
 <li>External Intervention: Intervention by external actors into a state's affairs signals a state's failure to meet domestic or international obligations. Measurements include level of foreign assistance, presence of peacekeepers or UN missions, foreign military intervention, sanctions, and credit ratings. Intervention by donors, especially if there is a tendency towards over-dependence on foreign aid or peacekeeping missions, is also considered.</li>
     </ul>
-  
-  </body>
-</html>
+{% endblock %}
+ 
