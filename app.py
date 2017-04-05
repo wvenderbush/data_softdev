@@ -22,7 +22,7 @@ def about():
 
 @app.route("/directory")
 def directory():
-    return render_template('directory.html', title = "Country Directory")
+    return render_template('directory.html', title = "Country Directory", clist = func.allFlags())
 
 @app.route("/data")
 def data():

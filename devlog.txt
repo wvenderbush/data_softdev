@@ -61,5 +61,9 @@ Unglitched the bar, made bouncing better, glitches not as bad
 venderbushW -- 2017-4-05 11:14
 Updated radius algorithm to make extremes more extreme!
 
-venderbushW -- 2018-4-05 11:40
+venderbushW -- 2017-4-05 11:40
 Added new flag functions
+
+venderbushW -- 2017-4-05 12:24
+Added missing data
+Added jinja functions
