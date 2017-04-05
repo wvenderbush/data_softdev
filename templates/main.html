@@ -28,8 +28,11 @@
     <table>
       {% for item in urldict %}
       <TR>
-         <TD><IMG src="{{item.flag}}"></TD>
-         <TD class="c2">{{item.name}}</TD>
+        <TD align="center">{{item.name}}</TD>
+         <TD align="center"><IMG src="{{item.flag}}"></TD>
+         <TD align="center">{{item.name}}</TD>
+      </TR>
+      <tr>     </tr>
       {% endfor %}
     </table>
 
