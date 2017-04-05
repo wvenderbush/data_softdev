@@ -59,15 +59,16 @@ def effectForYear(year, clist=cdict.keys()):
 
 def findRadius(index, type):
 	radius = 0;
-	if (index <= 0 or index > 120):
-		radius = -1
+	if (index < 0 or index > 120):
+		radius = -10
 		
 	elif type == "sfi":
-		area = index * 10
-		radius = math.sqrt(area / math.pi)
+		area = math.fabs(index - 30) * math.pow(((30 - index) / 5), 1.5)
+		radius = math.sqrt(area / math.pi) 
+		print radius
 
 	else:
-		area = index * 10
+		area = math.fabs(index - 15)
 		radius = math.sqrt(area / math.pi)
 
 	return radius
@@ -145,15 +146,15 @@ def getFlag(ccode):
 
 
 #print(getFlag('ca'))
-print(countryCodes())
+#print(countryCodes())
 
 
 
-#pprint(sfiForYear(1999))
-#print(findRadius(0, 'sfi'))
+#pprint(sfiForYear(2001))
+#print(findRadius(120, 'sfi'))
 #print radiusForYear("Canada", 2000, 'sfi')
-#pprint(radiiForYear(['Canada', 'Mexico', 'Germany'], 2001, 'sfi'))
+pprint(radiiForYear(['Somalia', 'Mexico', 'Germany'], 2001, 'sfi'))
 #print(getCode('Tanzania'))
 
 #print countryNames()
-print radiusForYear("Belgium", 2000, 'sfi')
+#print radiusForYear("Belgium", 2000, 'sfi')
