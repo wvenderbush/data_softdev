@@ -153,10 +153,13 @@ def allFlags():
 	return retlist
 
 def getFlagList(codes):
-	retdict = {}
+	retlist = []
 	for item in codes:
-		retdict[getCountry(item)] = getFlag(item)
-	return retdict
+		retdict = {}
+		retdict['name'] = getCountry(item)
+		retdict['flag'] = getFlag(item)
+		retlist.append(retdict)
+	return retlist
 
 
 #print(getFlag('ca'))

@@ -20,6 +20,19 @@
     </svg><br>
     
     <br>
+
+    <hr>
+
+    <h2> Countries Depicted </h2>
+
+    <table>
+      {% for item in urldict %}
+      <TR>
+         <TD><IMG src="{{item.flag}}"></TD>
+         <TD class="c2">{{item.name}}</TD>
+      {% endfor %}
+    </table>
+
     <script type="text/javascript" src="../static/app.js"></script>
     </center>
 
