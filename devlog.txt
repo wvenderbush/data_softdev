@@ -45,3 +45,12 @@ Loading a large set of random balls now, fixed scaling, fixed border
 
 marksG -- 2017-4-04 6:00
 Culled lots of bad entries from the list of countries
+
+marksG -- 2017-4-05 7:00
+Movement, still glitchy
+
+marksG -- 2017-4-05 8:00
+Bar at the top to change years
+
+marksG -- 2017-4-05 11:00
+Unglitched the bar, made bouncing better, glitches not as bad
