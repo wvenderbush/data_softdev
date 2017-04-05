@@ -5,32 +5,9 @@ var readyToChange = true;
 var countries = [];
 var numLoaded = 0;
 var id;
-var minYear = 1995;
-var maxYear = 2014;
-var inc = 1400. / (maxYear - minYear + 1)
-for (var year = minYear; year <= maxYear; year++) {
-    r = document.createElementNS(ns, 'rect');
-    r.setAttribute('x', (year - minYear) * inc);
-    r.setAttribute('y', 0);
-    r.setAttribute('width', inc);
-    r.setAttribute('height', 75);
-    r.setAttribute('year', year);
-    r.setAttribute('fill', 'rgb(255,' + Math.floor(255 - 255 * (year - minYear) / (maxYear - minYear)).toString() + ',' + Math.floor(255 - 255 * (year - minYear) / (maxYear - minYear)).toString() + ')')
-    r.addEventListener('mouseover', function(e) {
-        if(!readyToChange)
-            return;
-        readyToChange = false;
-        dis.innerHTML = '';
-        countries = [];
-        numLoaded = 0;
-        window.cancelAnimationFrame(id);
-        for (var i = 0; i < codeList.length; i++) {
-            country(codeList[i], this.getAttribute('year'));
-        }
-    });
-    console.log(r);
-    bar.appendChild(r);
-}
+var yeartext = document.createElement('div');
+yeartext.innerHTML = 'Year: 2000';
+document.body.appendChild(yeartext);
 console.log(codeList);
 var collides = function(x, y, r, simple, idx) {
     collisions = []
@@ -52,7 +29,23 @@ var collides = function(x, y, r, simple, idx) {
         return false;
     return collisions;
 }
-
+var update = function(c, y) {
+    $.get('/data', {country:c, year:y}, function(data) {
+        for(var i = 0; i < countries.length; i++) {
+            im = countries[i][0];
+            if (im.getAttribute('xlink:href') === data.url) {
+                console.log('Found element');
+                console.log(b.getAttribute('r'));
+                r = data.radius * 8;
+                im.setAttribute('width', 2 * r);
+                im.setAttribute('height', 2 * r);
+                b = countries[i][1];
+                b.setAttribute('r', r + 1);
+                console.log(b.getAttribute('r'));
+            }
+        }
+    });
+}
 var country = function(c, y) {
     var im = document.createElementNS(ns, 'image');
     var b = document.createElementNS(ns, 'circle');
@@ -60,12 +53,13 @@ var country = function(c, y) {
     $.get('/data',{country:c, year:y}, function(data) {
         pair = [];
         r = data.radius * 8;
-    	im.href.baseVal = data.url;
+        //im.href.baseVal = data.url;
         im.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', data.url);
     	im.setAttribute('width', 2 * r);
     	im.setAttribute('height', 2 * r);
         im.setAttribute('class', 'flag');
         im.setAttribute('preserveAspectRatio', 'none');
+        im.setAttribute('mask', 'url(#flagMask)')
         b.setAttribute('r', r + 1);
         countries.push([im, b]);
         numLoaded += 1;
@@ -198,3 +192,26 @@ var looper = function() {
     tick();
 }
 
+for (var i = 0; i < codeList.length; i++) {
+    country(codeList[i], 2000);
+}
+var minYear = 1995;
+var maxYear = 2014;
+var inc = 1400. / (maxYear - minYear + 1)
+for (var year = minYear; year <= maxYear; year++) {
+    r = document.createElementNS(ns, 'rect');
+    r.setAttribute('x', (year - minYear) * inc);
+    r.setAttribute('y', 0);
+    r.setAttribute('width', inc);
+    r.setAttribute('height', 75);
+    r.setAttribute('year', year);
+    r.setAttribute('fill', 'rgb(255,' + Math.floor(255 - 255 * (year - minYear) / (maxYear - minYear)).toString() + ',' + Math.floor(255 - 255 * (year - minYear) / (maxYear - minYear)).toString() + ')')
+    r.addEventListener('mouseover', function(e) {
+        for (var i = 0; i < codeList.length; i++) {
+            update(codeList[i], this.getAttribute('year'));
+        }
+        yeartext.innerHTML = 'Year: ' + this.getAttribute('year')
+    });
+    console.log(r);
+    bar.appendChild(r);
+}
