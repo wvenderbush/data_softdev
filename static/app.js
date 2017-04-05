@@ -24,7 +24,7 @@ var collides = function(x, y, r, simple, idx) {
     }
     if(simple)
         return false;
-    return collisions
+    return collisions;
 }
 
 var country = function(c, y) {
@@ -68,15 +68,17 @@ var placeBalls = function() {
            tries--;
            console.log(tries);
         } while(collides(x, y, br, true, -1) && tries > 0);
-        im.v = 500. / (30 + br)
-        im.xv = Math.random() * im.v;
-        im.yv = Math.pow(Math.pow(im.v, 2) - Math.pow(im.xv, 2), 0.5);
-        im.xv = Math.random() < 0.5 ? -im.xv : im.xv
-        im.yv = Math.random() < 0.5 ? -im.yv : im.yv
+        v = 500. / (30 + br)
+        im.setAttribute('v', v)
+        xv = Math.random() * v;
+        yv = Math.pow(Math.pow(v, 2) - Math.pow(xv, 2), 0.5);
+        //im.createAttribute('xv');
+        //im.createAttribute('yv');
+        im.setAttribute('vx', Math.random() < 0.5 ? -xv : xv);
+        im.setAttribute('vy', Math.random() < 0.5 ? -yv : yv);
+        console.log(im.getAttribute('vx'));
         im.setAttribute('x', x);
 		im.setAttribute('y', y);
-        console.log(x);
-        console.log(y);
 	b.setAttribute('cx', x + r);
 	b.setAttribute('cy', y + r);
 	b.setAttribute('stroke', 'black');
@@ -92,45 +94,63 @@ var looper = function() {
     var tick = function() {
         for (var i = 0; i < countries.length; i++) {
             // 1. check for collisions and update v's
-            im = countries[i][0];
-            b = countries[i][1];
-            x = parseFloat(b.getAttribute('cx'));
-            y = parseFloat(b.getAttribute('cy'));
-            r = parseFloat(b.getAttribute('r'));
+            var im = countries[i][0];
+            var b = countries[i][1];
+            var x = parseFloat(b.getAttribute('cx'));
+            var y = parseFloat(b.getAttribute('cy'));
+            var r = parseFloat(b.getAttribute('r'));
+            var vx = parseFloat(im.getAttribute('vx'));
+            var vy = parseFloat(im.getAttribute('vy'));
+            var v = parseFloat(im.getAttribute('v'));
             others = collides(x, y, r, false, i);
-            console.log(others);
-            console.log(others.length);
             for (var j = 0; j < others.length; j++) {
-                imO = others[j][0];
-                bO = others[j][1];
+                var imO = others[j][0];
+                var bO = others[j][1];
                 ox = parseFloat(bO.getAttribute('cx'));
                 oy = parseFloat(bO.getAttribute('cy'));
+                ovx = parseFloat(imO.getAttribute('vx'));
+                ovy = parseFloat(imO.getAttribute('vy'));
+                ov = parseFloat(imO.getAttribute('v'));
                 dist = Math.pow(Math.pow(ox - x, 2) + Math.pow(oy - y, 2), 0.5)
-                oldvx = im.vx;
-                oldvy = im.vy;
-                im.vx = imO.vx / imO.v * im.v;
-                im.vy = imO.vy / imO.v * im.v;
-                imO.vx = oldvx / im.v * imO.v;
-                imO.vy = oldvy / im.v * imO.v;
+                oldvx = vx;
+                oldvy = vy;
+                vx = ovx / ov * v;
+                vy = ovy / ov * v;
+                imO.setAttribute('vx', oldvx / v * ov);
+                imO.setAttribute('vy', oldvy / v * ov);
                 
             }
-            // 2. check collision with edge
+            
+            // 3. move ims
+            x += vx;
+            y += vy;
             if(x >= 1400 - r || x < r) {
-                im.vx = -im.vx;
+                vx = -vx;
+                x += vx * 2;
             }
             if(y >= 615 - r || y < r) {
-                im.vy = -im.vy;
+                vy = -vy;
+                y += vy * 2;
             }
-            // 3. move ims
-            x += im.vx;
-            y += im.vy;
+            
+            
             // 4. set attributes
-            b.setAttribute('cx', x);
-            console.log(im.vx);
-            console.log(x);
-            b.setAttribute('cy', y);
+            // console.log(x);
+            // console.log(y);
+            // console.log(im.vx);
+            // console.log(im.vy);
+            b.setAttribute('cx', x - 1);
+            b.setAttribute('cy', y - 1);
             im.setAttribute('x', x - r);
             im.setAttribute('y', y - r);
+            im.setAttribute('vx', vx);
+            im.setAttribute('vy', vy);
+            // b.setAttribute('cx', x);
+            // console.log(im.vx);
+            // console.log(x);
+            // b.setAttribute('cy', y);
+            // im.setAttribute('x', x - r);
+            // im.setAttribute('y', y - r);
 
         }
         id = window.requestAnimationFrame(tick);
