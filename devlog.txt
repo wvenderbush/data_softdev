@@ -42,3 +42,6 @@ Bugchecking ball and border functions
 
 marksG -- 2017-4-04 4:30
 Loading a large set of random balls now, fixed scaling, fixed border
+
+marksG -- 2017-4-04 6:00
+Culled lots of bad entries from the list of countries
