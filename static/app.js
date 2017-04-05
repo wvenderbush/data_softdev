@@ -89,7 +89,7 @@ var placeBalls = function() {
            tries--;
            console.log(tries);
         } while(collides(x, y, br, true, -1) && tries > 0);
-        v = 500. / (30 + br)
+        v = 450. / (30 + br)
         im.setAttribute('v', v)
         xv = Math.random() * v;
         yv = Math.pow(Math.pow(v, 2) - Math.pow(xv, 2), 0.5);
