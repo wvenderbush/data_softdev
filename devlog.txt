@@ -39,3 +39,6 @@ Adding actual balls to js
 
 dilmohamedS 2017-4-03 6:30
 Bugchecking ball and border functions
+
+marksG -- 2017-4-04 4:30
+Loading a large set of random balls now, fixed scaling, fixed border
