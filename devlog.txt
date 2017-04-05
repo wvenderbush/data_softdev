@@ -46,6 +46,9 @@ Loading a large set of random balls now, fixed scaling, fixed border
 marksG -- 2017-4-04 6:00
 Culled lots of bad entries from the list of countries
 
+BigL -- 2017-04-04 6:30
+Front-end work, will go on until relatively nice
+
 marksG -- 2017-4-05 7:00
 Movement, still glitchy
 
