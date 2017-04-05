@@ -59,8 +59,8 @@ var placeBalls = function() {
         br = parseFloat(b.getAttribute('r'));
         maxx = 1400 - 2 * br;
         maxy = 615 - 2 * br;
-		var x = 0;
-		var y = 0;
+		x = Math.random() * (maxx);
+        y = Math.random() * (maxy);
         tries = 5000;
         do {
            x = Math.random() * (maxx);
@@ -75,7 +75,8 @@ var placeBalls = function() {
         im.yv = Math.random() < 0.5 ? -im.yv : im.yv
         im.setAttribute('x', x);
 		im.setAttribute('y', y);
-
+        console.log(x);
+        console.log(y);
 	b.setAttribute('cx', x + r);
 	b.setAttribute('cy', y + r);
 	b.setAttribute('stroke', 'black');
@@ -97,18 +98,21 @@ var looper = function() {
             y = parseFloat(b.getAttribute('cy'));
             r = parseFloat(b.getAttribute('r'));
             others = collides(x, y, r, false, i);
+            console.log(others);
+            console.log(others.length);
             for (var j = 0; j < others.length; j++) {
-                imO = others[i][0];
-                bO = others[i][1];
+                imO = others[j][0];
+                bO = others[j][1];
                 ox = parseFloat(bO.getAttribute('cx'));
                 oy = parseFloat(bO.getAttribute('cy'));
                 dist = Math.pow(Math.pow(ox - x, 2) + Math.pow(oy - y, 2), 0.5)
-                oDirX = (ox - x) / dist;
-                oDirY = (oy - y) / dist;
-                imO.vx = oDirX * imO.v;
-                imO.vy = oDirY * imO.v;
-                im.vx = -oDirX * im.v;
-                im.vy = -oDirY * im.v;
+                oldvx = im.vx;
+                oldvy = im.vy;
+                im.vx = imO.vx / imO.v * im.v;
+                im.vy = imO.vy / imO.v * im.v;
+                imO.vx = oldvx / im.v * imO.v;
+                imO.vy = oldvy / im.v * imO.v;
+                
             }
             // 2. check collision with edge
             if(x >= 1400 - r || x < r) {
@@ -122,6 +126,8 @@ var looper = function() {
             y += im.vy;
             // 4. set attributes
             b.setAttribute('cx', x);
+            console.log(im.vx);
+            console.log(x);
             b.setAttribute('cy', y);
             im.setAttribute('x', x - r);
             im.setAttribute('y', y - r);
