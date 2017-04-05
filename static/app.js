@@ -2,8 +2,8 @@ var bar = document.getElementById('scroll');
 var dis = document.getElementById('display');
 var ns = 'http://www.w3.org/2000/svg';
 var countries = [];
-
-
+var numLoaded = 0;
+console.log(codeList);
 var collides = function(x, y, r) {
     for (var i = 0; i < countries.length; i++) {
 	ball = countries[i][0]
@@ -29,14 +29,19 @@ var country = function(c, y) {
     	im.setAttribute('height', 2 * r);
         im.setAttribute('class', 'flag');
         im.setAttribute('preserveAspectRatio', 'none');
-        b.setAttribute('r', r + 3);
+        b.setAttribute('r', r + 1);
         countries.push([im, b]);
+        numLoaded += 1;
+        placeBalls();
     });
     return im;
 }
 
 var placeBalls = function() {
-    
+    if(numLoaded < codeList.length) {
+        console.log(numLoaded);
+        return;
+    }
     tries = 5000;
     for (var i = 0; i < countries.length; i++) {
         im = countries[i][0];
@@ -67,7 +72,6 @@ var placeBalls = function() {
     }
 }
 
-country('PL', 2000);
-country('US', 2001);
-country('GB', 2000);
-setTimeout(placeBalls, 100);
+for (var i = 0; i < codeList.length; i++) {
+    country(codeList[i], 2000);
+}

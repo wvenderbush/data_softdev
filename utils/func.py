@@ -63,11 +63,11 @@ def findRadius(index, type):
 		radius = -1
 		
 	elif type == "sfi":
-		area = math.fabs(121 - index)
+		area = index * 10
 		radius = math.sqrt(area / math.pi)
 
 	else:
-		area = math.fabs(61 - index)
+		area = index * 10
 		radius = math.sqrt(area / math.pi)
 
 	return radius
@@ -130,7 +130,7 @@ def countryCodes():
 	clist = cdict.keys()
 	retlist = []
 	for item in clist:
-		retlist.append(getCode(item))
+		retlist.append(getCode(item).encode('ascii', 'ignore'))
 	return retlist
 
 def getFlag(ccode):
