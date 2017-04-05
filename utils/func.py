@@ -59,7 +59,7 @@ def effectForYear(year, clist=cdict.keys()):
 
 def findRadius(index, type):
 	radius = 0;
-	if (index < 0 or index > 120):
+	if (index <= 0 or index > 120):
 		radius = -1
 		
 	elif type == "sfi":
@@ -130,7 +130,10 @@ def countryCodes():
 	clist = cdict.keys()
 	retlist = []
 	for item in clist:
-		retlist.append(getCode(item).encode('ascii', 'ignore'))
+		try:
+			retlist.append(getCode(item).encode('ascii', 'ignore'))
+		except:
+			pass
 	return retlist
 
 def getFlag(ccode):
@@ -153,4 +156,4 @@ print(countryCodes())
 #print(getCode('Tanzania'))
 
 #print countryNames()
-print radiusForYear("Poland", 2000, 'sfi')
+print radiusForYear("Belgium", 2000, 'sfi')
