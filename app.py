@@ -13,7 +13,7 @@ app = Flask(__name__)
 @app.route("/main")
 def root():
 	form = request.form
-	return render_template('main.html', title = "State Fragility Indices", codes = random.sample(func.countryCodes(), 12) )
+	return render_template('main.html', title = "State Fragility Indices", codes = random.sample(func.countryCodes(), 12), urldict = func.getFlagList(codes))
 
 @app.route("/about")
 def about():

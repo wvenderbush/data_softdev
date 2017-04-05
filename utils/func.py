@@ -9,7 +9,7 @@ list_of_scores = state_fragility.get_scores(test=False)
 
 cdict = {}
 
-with open('../data/countries.json') as data_file:    
+with open('data/countries.json') as data_file:    
     codes = json.load(data_file)
 
 for item in list_of_scores:
